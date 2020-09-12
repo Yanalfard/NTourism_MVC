@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+
+    <meta name="description" content="RimaTrip,RimaTrip,Tourist,Aras" />
+    <meta name="keywords" content="RimaTrip,RimaTrip,Tourist,Aras" />
+    <meta name="language" content="en-US" />
+    <link rel="icon" href="/Resources/En/Logo/Main.svg" />
+    <script src="https://www.google.com/recaptcha/api.js?render=put your site key here"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Rimatrip</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <link href="~/Content/StylrViews/Master.css" rel="stylesheet" />
+    @*<%-- #Fa --%>*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section>
+        <header>
+            <div id="Header">
+                <div class="MenuSmClickShowAndHideMenu" id="Button12">
+                    <div class="bar1"></div>
+                    <div class="bar3"></div>
+                    <div class="bar3"></div>
+                </div>
+            </div>
+        </header>
+        <div id="MenuHeaderLeftLg" class="MenuHeaderLeftLgStyle" style="z-index: 3;">
+            <div class="DivLogoMenuHeaderLeftLgStyle">
+                <a href="#">
+                    <img src="~/Resources/En/Logo/Main.svg" class="ImgDivLogoMenuHeaderLeftLgStyle" />
+                </a>
+            </div>
+            <div class="DivTextMenuHeaderLeftLgStyle">
+                <ul class="UlDivTextMenuHeaderLeftLgStyle list-unstyled ">
+                    <li>
+                        <a href="/Home">Home</a>
+                    </li>
+                    <li>
+                        <a href="/Destinations">Destinations</a>
+                    </li>
+                    <li>
+                        <a href="/OurServices">Our Services</a>
+                    </li>
+                    <li>
+                        <a href="/News">News</a>
+                    </li>
+                    <li>
+                        <a href="/Rimatours">Rimatours</a>
+                    </li>
+                    <li>
+                        <a href="/Event">Event</a>
+                    </li>
+
+                    <li>
+                        <a href="/Gallery">Gallery</a>
+                    </li>
+
+                    <li>
+                        <a href="/AboutUs">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div id="DivBtnSingout" class=" text-center">
+                    <input id="BtnGoDashboard" class="BtnStyleBtnMenuHeaderLeftLgStyle" type="button" value="Dashboard" onclick="GoDashboard();" /><br />
+                    <input type="hidden" name="name" id="HiddenProfileName" value="" />
+                    <a href="/Home/SignOut">
+                        <input id="BtnSingout" class="BtnStyleBtnMenuHeaderLeftLgStyle" type="button" value="Singout" /><br />
+                    </a>
+                </div>
+            }
+            else
+            {
+
+                <div id="DivBtnMenuHeaderLeftLg" class="DivBtnMenuHeaderLeftLgStyle text-center">
+                    <a href="/Signin" id="BtnLogin" class="btn BtnStyleBtnMenuHeaderLeftLgStyle">Sign in</a>
+                </div>
+            }
+        </div>
+        <div id="MainColRightLg" class="MainColRightLgStyle container-fluid">
+
+            @RenderBody()
+
+        </div>
+        <footer>
+            <div id="Footer" class="container-fluid">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="divtitrfooterstyle">
+                            <p>
+                                Sevises:
+                            </p>
+                        </div>
+                        <div class="divallzirtitrfooterstyle">
+                            <div class="divzirtitrfooterstyle">
+                                <a href="/OurServices">+OurServices</a>
+                            </div>
+                            <div class="divzirtitrfooterstyle">
+                                <a href="/Rimatours">+Rimatours</a>
+                            </div>
+                            <div class="divzirtitrfooterstyle">
+                                <a href="/Ticket">+Public Service</a>
+                            </div>
+                            <div class="divzirtitrfooterstyle">
+                                <a href="/Ticket">+Cultural Educational Service</a>
+
+                            </div>
+                            <div class="divzirtitrfooterstyle">
+                                <a href="/Ticket">+Medical Tourism</a>
+                            </div>
+                            <div class="divzirtitrfooterstyle">
+                                <a href="/Ticket">+Business Service</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="divtitrfooterstyle">
+                            <p>
+                                Contact Us:
+                            </p>
+                        </div>
+                        <div class="divallzirtitrfooterstyle">
+                            <div class="divzirtitrfooterstyle">
+                                <a>
+                                    Address:
+                                    <br />
+                                </a>
+                            </div>
+                            <div class="divInRow1TheRow2ContactUsPageStyle">
+                                <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <img src="/Resources/En/SocialNetworks/icon-11.png" class="ImgIconContactUsPageStyle" alt="Address" title="Address" />
+                                    <span class="TextImgIconContactUsPageStyleMaster">No.85 2nd Floor Mashahir Complex , Jolfa , Aras Free Zone , IRAN</span>
+                                </div>
+                                <div style="margin-top: 1em;" class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <img src="/Resources/En/SocialNetworks/icon-07.png" class="ImgIconContactUsPageStyle" alt="Address" title="Address" />
+                                    <span class="TextImgIconContactUsPageStyleMaster">+989120487833</span>
+                                </div>
+                                <div style="margin-top: 1em;" class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <img src="/Resources/En/SocialNetworks/icon-10.png" class="ImgIconContactUsPageStyle" alt="Address" title="Address" />
+                                    <span class="TextImgIconContactUsPageStyleMaster">+989120487833</span>
+                                </div>
+                                <div style="margin-top: 1em;" class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <img src="/Resources/En/SocialNetworks/icon-09.png" class="ImgIconContactUsPageStyle" alt="Address" title="Address" />
+                                    <span class="TextImgIconContactUsPageStyleMaster"><a class="TextImgIconContactUsPageStyleMaster" target="_blank" href="https://www.instagram.com/rima.trip/">rima.trip</a></span>
+                                </div>
+                                <div style="margin-top: 1em;" class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <img src="/Resources/En/SocialNetworks/icon-08.png" class="ImgIconContactUsPageStyle" alt="Address" title="Address" />
+                                    <a href="mailto:rimatrip2020@gmail.com" class="TextImgIconContactUsPageStyleMaster">rimatrip2020@gmail.com</a>
+                                </div>
+                                <div style="margin-top: 1em;" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                    <img src="/Resources/En/SocialNetworks/icon-08.png" class="ImgIconContactUsPageStyle" alt="Address" title="Address" />
+                                    <a href="mailto:rimatrip2020@gmail.com" class="TextImgIconContactUsPageStyleMaster">Info@rimatrip.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="FooterNameTeamStyle text-center">
+                <a target="_blank" href="https://arvintavco.com/" class="TextImgIconContactUsPageStyleMaster">Copyright by:ARVINTAV</a>
+
+            </div>
+        </footer>
+
+        <button onclick="topFunction()" class="BtnScrollTop" id="myBtn" title="Go to top"><span class="glyphicon glyphicon-menu-up"></span></button>
+
+    </section>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/ScriptViews/Master.js"></script>
+
+    <script src="~/JsDecoder/_4ServicesJore.js"></script>
+    <script src="~/JsDecoder/AdJore.js"></script>
+    <script src="~/JsDecoder/AttractionCommentsRelJore.js"></script>
+    <script src="~/JsDecoder/AttractionEquipmentRelJore.js"></script>
+    <script src="~/JsDecoder/AttractionJore.js"></script>
+    <script src="~/JsDecoder/AttractionPollRelJore.js"></script>
+    <script src="~/JsDecoder/BjaxLib.js"></script>
+    <script src="~/JsDecoder/CityAttractionRelJore.js"></script>
+    <script src="~/JsDecoder/CityJore.js"></script>
+    <script src="~/JsDecoder/ClientJore.js"></script>
+    <script src="~/JsDecoder/CommentsJore.js"></script>
+    <script src="~/JsDecoder/CountryJore.js"></script>
+    <script src="~/JsDecoder/EquipmentJore.js"></script>
+    <script src="~/JsDecoder/FacilityJore.js"></script>
+    <script src="~/JsDecoder/FirstPageJore.js"></script>
+    <script src="~/JsDecoder/ImagesJore.js"></script>
+    <script src="~/JsDecoder/MedicalServiceImagesRelJore.js"></script>
+    <script src="~/JsDecoder/MedicalServiceJore.js"></script>
+    <script src="~/JsDecoder/NewsJore.js"></script>
+    <script src="~/JsDecoder/PollJore.js"></script>
+    <script src="~/JsDecoder/ResumeJore.js"></script>
+    <script src="~/JsDecoder/RoomHomeCommentsRelJore.js"></script>
+    <script src="~/JsDecoder/RoomHomeFacilityRelJore.js"></script>
+    <script src="~/JsDecoder/RoomHomeImageRelJore.js"></script>
+    <script src="~/JsDecoder/RoomHomeJore.js"></script>
+    <script src="~/JsDecoder/TextJore.js"></script>
+    <script src="~/JsDecoder/TicketJore.js"></script>
+    <script src="~/JsDecoder/TourGuideEquipmentRelJore.js"></script>
+    <script src="~/JsDecoder/TourGuideImagesRelJore.js"></script>
+    <script src="~/JsDecoder/TourGuideJore.js"></script>
+    <script src="~/JsDecoder/TourGuideResumeRelJore.js"></script>
+    <script src="~/JsDecoder/TripStoryCommentRelJore.js"></script>
+    <script src="~/JsDecoder/TripStoryJore.js"></script>
+
+    @*<%-- Paging --%>*@
+    <script src="/Scripts/PagingJs/jquery.simplePagination.js"></script>
+
+    @RenderSection("Scripts", false)
+</body>
+</html>

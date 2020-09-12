@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/jquery.validate.min.js"></script>
+    <script src="Scripts/jquery-3.4.1.slim.min.js"></script>
+
+
+    <script src="/Scripts/PagingJs/jquery.simplePagination.js"></script>
+</head>
+<body>
+
+    <div class="list-wrapper">
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+        <div style="width:200px;height:200px;background-color:red" class="list-item">
+
+        </div>
+    </div>
+
+
+    <div id="pagination-container"></div>
+    <style>
+
+        .list-wrapper {
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .list-item {
+            border: 1px solid #EEE;
+            background: #FFF;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-shadow: 0px 0px 10px 0px #EEE;
+        }
+
+            .list-item h4 {
+                color: #FF7182;
+                font-size: 18px;
+                margin: 0 0 5px;
+            }
+
+            .list-item p {
+                margin: 0;
+            }
+
+        .simple-pagination ul {
+            margin: 0 0 20px;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .simple-pagination li {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+            .simple-pagination li a,
+            .simple-pagination li span {
+                color: #666;
+                padding: 5px 10px;
+                text-decoration: none;
+                border: 1px solid #EEE;
+                background-color: #FFF;
+                box-shadow: 0px 0px 10px 0px #EEE;
+            }
+
+        .simple-pagination .current {
+            color: #FFF;
+            background-color: #C6A100;
+            border-color: #C6A100;
+        }
+
+        .simple-pagination .prev.current,
+        .simple-pagination .next.current {
+            background: #C6A100;
+        }
+    </style>
+    <script>
+        var items = $(".list-wrapper .list-item");
+        var numItems = items.length;
+        var perPage = 9;
+        items.slice(perPage).hide();
+        $('#pagination-container').pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            prevText: "&laquo;",
+            nextText: "&raquo;",
+            onPageClick: function (pageNumber) {
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+                items.hide().slice(showFrom, showTo).show();
+            }
+        });
+
+    </script>
+</body>
+</html>

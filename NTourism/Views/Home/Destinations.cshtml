@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Destinations";
+}
+
+<link href="~/Content/StylrViews/Destinations.css" rel="stylesheet" />
+<link href="~/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css" rel="stylesheet" />
+<link href="~/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css" rel="stylesheet" />
+
+
+<section>
+    @section SliderPage{
+        <section>
+            <img id="Img1SliderPageDestinations" src="/Resources/En/Destinations/Destinations-01.png" class="Img1SliderPageDestinationsStyle" alt="Destinations Image Tourism" title="Destinations Image Tourism" />
+            <img id="Img2SliderPageDestinations" src="/Resources/En/Destinations/Destinations-02.png" class="Img2SliderPageDestinationsStyle" alt="Destinations Image Tourism" title="Destinations Image Tourism" />
+            <img id="Img3SliderPageDestinations" src="/Resources/En/Destinations/Destinations-03.png" class="Img3SliderPageDestinationsStyle" alt="Destinations Image Tourism" title="Destinations Image Tourism" />
+        </section>
+    }
+</section>
+<section>
+    <section>
+        <div class="divRow1DestinationsPageStyle list-wrapper">
+            <div class="divInRow1TheRow1TextDestinationsPageStyle text-center">
+                <p class="textInRow1TheRow1TextDestinationsPageStyle">Destinations</p>
+            </div>
+            <div class="SearchdivDestinations">
+                <script src="https://kit.fontawesome.com/57456f662e.js" crossorigin="anonymous"></script>
+                <center><h1>Search box by Destinations</h1></center>
+                <!--Search content -->
+                <div class="searchinput">
+                    <input list="DataListInDestinations" id="TextSearchDestinations" type="text" name="q" placeholder=" search..." class="textDestinations" required>
+                    <button id="BtnSearchDestinations" type="submit" class="submitDestinations"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ShowAllCitiesInSlider">
+        </div>
+        <div class="ShowCitySeletOne">
+        </div>
+        <div class="divAdd5upinfooter">
+        </div>
+
+    </section>
+    <datalist id="DataListInDestinations">
+    </datalist>
+</section>
+
+
+@section scripts{
+    <script src="~/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script src="~/Scripts/ScriptViews/Destinations.js"></script>
+    <script>
+        var Number1Ads = 1011;
+        var Number2Ads = 1012;
+        var Number3Ads = 1013;
+        var Number4Ads = 1014;
+        var Number5Ads = 1015;
+    </script>
+
+}
+
+
+

@@ -1,0 +1,117 @@
+﻿@model NTourism.Models.LoginUser
+
+@{
+    ViewBag.Title = "Signin";
+    Layout = "~/Views/Shared/_LayoutSignin.cshtml";
+}
+
+<link href="~/Content/StylrViews/Signin.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Signin", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <section class="row">
+
+        <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+            <img src="~/Resources/En/SingUp/Signup-01.png" class="ImgSignupStyle" alt="Signup-OurServices" title="Signup-OurServices" />
+        </div>
+        <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+            <div id="form_container">
+
+                <div class="form-horizontal" style="margin-top:5em;">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Remember, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.Remember)
+                                @Html.ValidationMessageFor(model => model.Remember, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <label>SIGNIN</label>
+                    <div id="myForm">
+                        <label>
+                            <input type="radio" class="radioName" name="radioName" checked value="Tourist" />
+                            Tourist
+                        </label>
+                        <label>
+                            <input type="radio" class="radioName" name="radioName" value="Rimatours" />
+                            Rimatours
+                        </label>
+                        <label>
+                            <input type="radio" class="radioName" name="radioName" value="OurServices" />
+                            OurServices
+                        </label>
+                    </div>
+                    <input type="hidden" id="HideStatusId" name="HideStatusId" value="" />
+
+                </div>
+
+                <p class="CreateSininStyle">Create Account</p>
+                <p id="ErrorTextPageLogin"></p>
+                <ul class="errorMessages"></ul>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="btnsubmit" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <input type="hidden" id="HideStatusId" name="HideStatusId" value="" />
+
+        <div id="MyModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content row">
+                    <div class="modal-body text-center col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <a class="LinkTextToSingupPagestyle  btn btn-block" href="~/SingUpOurServices">OurServices</a>
+                        </div>
+                        <div class="row">
+                            <a class="LinkTextToSingupPagestyle  btn btn-block" href="~/SingUpRimatours">Rimatours</a>
+                        </div>
+                        <div class="row">
+                            <a class="LinkTextToSingupPagestyle  btn btn-block" href="~/SingUpTourist">Tourist</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+}
+
+
+
+
+@section scripts{
+
+    <script src="~/Scripts/ScriptViews/Signin.js"></script>
+    <script>
+        $('#HideStatusId').val('Tourist');
+        $('.radioName').click(function () {
+            var NameChose = $('input[name=radioName]:checked').val();
+            $('#HideStatusId').val($('input[name=radioName]:checked').val());
+        });
+    </script>
+}
+
