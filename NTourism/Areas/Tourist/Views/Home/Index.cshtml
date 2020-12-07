@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Tourist";
+    Layout = "~/Views/Shared/_LayoutSignin.cshtml";
+}
+
+<link href="~/Content/StylrViews/ProfileTourist.css" rel="stylesheet" />
+
+
+<section>
+    @*<%-- #Page1 --%>*@
+    <div id="DivPage1TourGide" class="row DivPage1TourGide">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="divcol1style">
+                @Html.Action("Info")
+            </div>
+        </div>
+    </div>
+    @*<%-- #Page2 --%>*@
+    <div id="DivPage2TourGide" class="DivPage2TourGide">
+
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" id="form_container">
+           @Html.Action("EditInfo")
+        </div>
+
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+        </div>
+    </div>
+
+
+</section>
+<input type="hidden" id="HideUserName" name=" @User.Identity.Name.Split('|')[0]" value=" @User.Identity.Name.Split('|')[0]" />
+
+@section scripts{
+    <script src="~/Scripts/ScriptViews/ProfileTourist.js"></script>
+}
+

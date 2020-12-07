@@ -2,6 +2,7 @@
     //Rate
     //Discount
     //Price
+
     var Username = $('#HideUserName').val();
     var selectedClient = SelectTourGuideByUsername(Username);
     $('#FNameAmn').text(selectedClient.FirstName);
@@ -393,8 +394,6 @@ $('.remImage').click(function () {
     //$(this).parent().children().children('input[type="file"]').wrap('<form>').closest('form').get(0).reset();
     $(this).parent().children('img').remove();
     $(this).parent().children('div').show();
-});
-
 });
 
 

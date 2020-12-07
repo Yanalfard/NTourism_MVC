@@ -315,7 +315,6 @@ function GoDashboard() {
         return "";
     }
     var user = getCookie("CodeProConnect");
-    alert(user);
     if (user != "") {
         if (user == 3) {
             window.location.href = "/ProfileTourist";

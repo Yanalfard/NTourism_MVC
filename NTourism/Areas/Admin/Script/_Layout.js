@@ -1,19 +1,4 @@
-﻿$(document).ready(function () {
-    $(function () {
-        if (localStorage.getItem("AdminUserName") === null) {
-            window.location.href = "/View/404/Index.html";
-        }
-        else {
-
-
-
-        }
-    });
-
-
-
-});
-
+﻿
 function SingOut() {
     window.localStorage.removeItem("AdminUserName");
     document.location.reload(true);

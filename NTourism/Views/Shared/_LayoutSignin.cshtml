@@ -19,6 +19,9 @@
     <link href="~/Content/StylrViews/Master.css" rel="stylesheet" />
     @*<%-- #Fa --%>*@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
     <section>
@@ -70,7 +73,26 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <div id="DivBtnSingout" class=" text-center">
-                    <input id="BtnGoDashboard" class="BtnStyleBtnMenuHeaderLeftLgStyle" type="button" value="Dashboard" onclick="GoDashboard();" /><br />
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a href="/Admin/Admin/Index" class="BtnStyleBtnMenuHeaderLeftLgStyle btn">Dashboard</a>
+                    }
+                    else if (User.IsInRole("rimatours"))
+                    {
+                        <a href="/Rimatours/Home/Index" class="BtnStyleBtnMenuHeaderLeftLgStyle btn">Dashboard</a>
+
+                    }
+                    else if (User.IsInRole("tourist"))
+                    {
+                        <a href="/Tourist/Home/Index" class="BtnStyleBtnMenuHeaderLeftLgStyle btn">Dashboard</a>
+
+                    }
+                    else if (User.IsInRole("ourservices"))
+                    {
+                        <a href="/OurServices/Home/Index" class="BtnStyleBtnMenuHeaderLeftLgStyle btn">Dashboard</a>
+
+                    }
+                    <br />
                     <input type="hidden" name="name" id="HiddenProfileName" value="" />
                     <a href="/Home/SignOut">
                         <input id="BtnSingout" class="BtnStyleBtnMenuHeaderLeftLgStyle" type="button" value="Singout" /><br />
@@ -79,7 +101,6 @@
             }
             else
             {
-
                 <div id="DivBtnMenuHeaderLeftLg" class="DivBtnMenuHeaderLeftLgStyle text-center">
                     <a href="/Signin" id="BtnLogin" class="btn BtnStyleBtnMenuHeaderLeftLgStyle">Sign in</a>
                 </div>

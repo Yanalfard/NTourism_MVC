@@ -1,0 +1,123 @@
+﻿
+@{
+    ViewBag.Title = "Rimatours";
+    Layout = "~/Views/Shared/_LayoutSignin.cshtml";
+}
+
+
+<link href="~/Content/StylrViews/ProfileRimatours.css" rel="stylesheet" />
+
+
+<section>
+    <div id="DivPage1OurServices" class="row DivPage1OurServices">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+
+            <div class="divcol1style">
+                @Html.Action("Info")
+            </div>
+            <div class="divcol1row2style">
+                <div>
+                    <label>Gallery</label>
+                </div>
+                <div class="DivAslyInGallery">
+                    <div class="LblAddImageStyle DivRemoveImg" id="fileDisplayArea1">
+                        <div id="DivuploadOurServices1">
+                            <input type="hidden" id="hiddenInputFullImgEmpty1" value="0" />
+                            <input type="hidden" class="removeImgInData" id="removeImgInData1" value="0" />
+                            <input type="hidden" id="hiddenIdImage1" value="" />
+                            <input type="file" id="file-upload1" />
+                            <label for="file-upload1"><i style="font-size: 7em; color: #B2B2B2; margin-top: 30%;" class="fa fa-plus"></i></label>
+                        </div>
+                        <a class="remImage" href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                    <div style="margin-left: 0.5em;" id="fileDisplayArea2" class="LblAddImageStyle DivRemoveImg">
+                        <div id="DivuploadOurServices2">
+                            <input type="hidden" id="hiddenInputFullImgEmpty2" value="0" />
+                            <input type="hidden" class="removeImgInData" id="removeImgInData2" value="0" />
+                            <input type="hidden" id="hiddenIdImage2" value="" />
+                            <input type="file" id="file-upload2" />
+                            <label for="file-upload2"><i style="font-size: 7em; color: #B2B2B2; margin-top: 30%;" class="fa fa-plus"></i></label>
+                        </div>
+                        <a class="remImage" href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                    <div style="margin-left: 0.5em;" id="fileDisplayArea3" class="LblAddImageStyle DivRemoveImg">
+                        <div id="DivuploadOurServices3">
+                            <input type="hidden" id="hiddenInputFullImgEmpty3" value="0" />
+                            <input type="hidden" class="removeImgInData" id="removeImgInData3" value="0" />
+                            <input type="hidden" id="hiddenIdImage3" value="" />
+                            <input type="file" id="file-upload3" />
+                            <label for="file-upload3"><i style="font-size: 7em; color: #B2B2B2; margin-top: 30%;" class="fa fa-plus"></i></label>
+                        </div>
+                        <a class="remImage" href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="DivAslyInGallery">
+                    <div style="margin-top: 0.5em;" id="fileDisplayArea4" class="LblAddImageStyle DivRemoveImg">
+                        <div id="DivuploadOurServices4">
+                            <input type="hidden" id="hiddenInputFullImgEmpty4" value="0" />
+                            <input type="hidden" class="removeImgInData" id="removeImgInData4" value="0" />
+                            <input type="hidden" id="hiddenIdImage4" value="" />
+                            <input type="file" id="file-upload4" />
+                            <label for="file-upload4"><i style="font-size: 7em; color: #B2B2B2; margin-top: 30%;" class="fa fa-plus"></i></label>
+                        </div>
+                        <a class="remImage" href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                    <div style="margin-left: 0.5em; margin-top: 0.5em;" id="fileDisplayArea5" class="LblAddImageStyle DivRemoveImg">
+                        <div id="DivuploadOurServices5">
+                            <input type="hidden" id="hiddenInputFullImgEmpty5" value="0" />
+                            <input type="hidden" class="removeImgInData" id="removeImgInData5" value="0" />
+                            <input type="hidden" id="hiddenIdImage5" value="" />
+                            <input type="file" id="file-upload5" />
+                            <label for="file-upload5"><i style="font-size: 7em; color: #B2B2B2; margin-top: 30%;" class="fa fa-plus"></i></label>
+                        </div>
+                        <a class="remImage" href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                    <div style="margin-left: 0.5em; margin-top: 0.5em;" id="fileDisplayArea6" class="LblAddImageStyle DivRemoveImg">
+                        <div id="DivuploadOurServices6">
+                            <input type="hidden" id="hiddenInputFullImgEmpty6" value="0" />
+                            <input type="hidden" class="removeImgInData" id="removeImgInData6" value="0" />
+                            <input type="hidden" id="hiddenIdImage6" value="" />
+                            <input type="file" id="file-upload6" />
+                            <label for="file-upload6"><i style="font-size: 7em; color: #B2B2B2; margin-top: 30%;" class="fa fa-plus"></i></label>
+                        </div>
+                        <a class="remImage" href="#">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="DivAslyInGallery text-center">
+                    <a class="btn" id="SendImageTodataSave">Save Image</a>
+                </div>
+            </div>
+
+        </div>
+        @*<%-- #Col2 --%>*@
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+
+        </div>
+    </div>
+
+    @*<%-- #Page2 --%>*@
+    <div id="DivPage2OurServices" class="DivPage2OurServices">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12" id="form_container">
+            @Html.Action("EditInfo")
+        </div>
+    </div>
+</section>
+<input type="hidden" id="HideUserName" name=" @User.Identity.Name.Split('|')[0]" value=" @User.Identity.Name.Split('|')[0]" />
+
+@section scripts{
+    <script src="~/Scripts/ScriptViews/ProfileRimatours.js"></script>
+}
+

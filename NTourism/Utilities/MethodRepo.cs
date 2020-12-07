@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.IO;
+using System.Net;
+using System.Web.Mvc;
 
 namespace NTourism.Utilities
 {
@@ -101,5 +104,47 @@ namespace NTourism.Utilities
             System.Drawing.Image image = System.Drawing.Image.FromStream(memoryStream, true);
             return image;
         }
+
+
+        public static bool CheckRechapcha(FormCollection form)
+        {
+            string urlToPost = "https://www.google.com/recaptcha/api/siteverify";
+            //< !--Site-- >
+            string secretKey = "6LdHiPwZAAAAAJf6J9k_XYkwloMCk8C434fju1Zz"; // change this
+            //< !--localhost-- >
+            //string secretKey = "6Ld_XsIZAAAAAL8yHVP2OmPE0LYumkEuPWDq1-rS"; // change this //
+            string gRecaptchaResponse = form["g-recaptcha-response"];
+
+            var postData = "secret=" + secretKey + "&response=" + gRecaptchaResponse;
+
+            // send post data
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlToPost);
+            request.Method = "POST";
+            request.ContentLength = postData.Length;
+            request.ContentType = "application/x-www-form-urlencoded";
+
+            using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+            {
+                streamWriter.Write(postData);
+            }
+
+            // receive the response now
+            string result = string.Empty;
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                using (var reader = new StreamReader(response.GetResponseStream()))
+                {
+                    result = reader.ReadToEnd();
+                }
+            }
+
+            // validate the response from Google reCaptcha
+            var captChaesponse = JsonConvert.DeserializeObject<reCaptchaResponse>(result);
+            return captChaesponse.Success;
+            //!!!
+            //return true;
+        }
+
+
     }
 }

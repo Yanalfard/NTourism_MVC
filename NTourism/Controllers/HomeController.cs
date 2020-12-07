@@ -3,6 +3,7 @@ using NTourism.Models;
 using NTourism.Models.Regular;
 using NTourism.Repositories.Impl;
 using NTourism.Services.Impl;
+using NTourism.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -176,15 +177,26 @@ namespace NTourism.Controllers
         }
         [Route("Signin")]
         [HttpPost]
-        public ActionResult Signin(LoginUser login)
+        public ActionResult Signin(LoginUser login, FormCollection form, string ReturnUrl = "/")
         {
             if (ModelState.IsValid)
             {
+                if (!MethodRepo.CheckRechapcha(form))
+                {
+                    ViewBag.Message = "لطفا گزینه من ربات نیستم را تکمیل کنید";
+                    return View(login);
+                }
                 string ClicntName = Request.Form["HideStatusId"].ToString();
                 ClicntName = ClicntName.Remove(ClicntName.Length - 1);
                 TblClient tblClient = clientRepo.SelectClientByUsernamePassword(login.UserName, login.Password);
                 TblTourGuide tblTourGuide = tourGuideRepo.SelectTourGuideByUsername(login.UserName);
+                if (tblClient.id != -1 && tblClient.id == 1)
+                {
+                    // FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
+                    FormsAuthentication.SetAuthCookie(login.UserName + "|" + "admin", login.Remember);
 
+                    return Redirect("/Index");
+                }
                 int dropdownId = 0;
                 if (ClicntName == "OurServices")
                 {
@@ -206,14 +218,16 @@ namespace NTourism.Controllers
                         if (dropdownId == 0)
                         {
                             ///clicnt
-                            FormsAuthentication.SetAuthCookie(login.UserName, login.Remember,"1");
-                            return Redirect("/ProfileTourist");
+                            FormsAuthentication.SetAuthCookie(login.UserName + "|" + "tourist", login.Remember);
+                            //FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
+                            return Redirect("/Index");
                         }
                         else if (dropdownId == 6)
                         {
                             ///ourservices
-                            FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
-                            return Redirect("/ProfileOurServices");
+                            FormsAuthentication.SetAuthCookie(login.UserName + "|" + "ourservices", login.Remember);
+                            //FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
+                            return Redirect("/Index");
                         }
                         //pass
                     }
@@ -228,8 +242,9 @@ namespace NTourism.Controllers
                     if (tblTourGuide.Password == login.Password)
                     {
                         //ok
-                        FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
-                        return Redirect("/ProfileRimatours");
+                        FormsAuthentication.SetAuthCookie(login.UserName + "|" + "rimatours", login.Remember);
+                        // FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
+                        return Redirect("/Index");
                     }
                     else
                     {
@@ -241,8 +256,6 @@ namespace NTourism.Controllers
                 {
                     ModelState.AddModelError("UserName", "Error Username Or Password");
                 }
-
-
 
             }
             return View(login);

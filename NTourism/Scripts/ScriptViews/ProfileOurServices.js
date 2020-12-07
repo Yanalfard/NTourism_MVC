@@ -3,12 +3,7 @@ $(document).ready(function () {
 
     var Username = $('#HideUserName').val();
     var selectedClient = SelectClientByUsername(Username);
-
-    $('#FNameAmn').text(selectedClient.FirstName);
-    $('#LNameAmn').text(selectedClient.LastName);
-    $('#ShoeEmail').text(selectedClient.Email);
-    $('#TellNo').text(selectedClient.TellNo);
-    $('#UserNameAmn').text(selectedClient.Username);
+   
     ////////////
 
     $('#Fname').val(selectedClient.FirstName);

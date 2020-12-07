@@ -1849,6 +1849,18 @@
     <Content Include="ckeditor\_samples\adobeair\run.sh" />
     <Content Include="ckeditor\_samples\assets\output_for_flash.fla" />
     <Content Include="Resources\Collaborate\Form\Collaborate.zip" />
+    <Content Include="Areas\Tourist\Views\web.config" />
+    <Content Include="Areas\Rimatours\Views\web.config" />
+    <Content Include="Areas\OurServices\Views\web.config" />
+    <Content Include="Areas\OurServices\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Rimatours\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Tourist\Views\Home\Index.cshtml" />
+    <Content Include="Areas\OurServices\Views\Home\Info.cshtml" />
+    <Content Include="Areas\OurServices\Views\Home\EditInfo.cshtml" />
+    <Content Include="Areas\Rimatours\Views\Home\Info.cshtml" />
+    <Content Include="Areas\Rimatours\Views\Home\EditInfo.cshtml" />
+    <Content Include="Areas\Tourist\Views\Home\Info.cshtml" />
+    <Content Include="Areas\Tourist\Views\Home\EditInfo.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
@@ -1993,6 +2005,12 @@
     <Compile Include="Areas\Admin\Controllers\RimatoursController.cs" />
     <Compile Include="Areas\Admin\Controllers\RimatripServicesController.cs" />
     <Compile Include="Areas\Admin\Controllers\TicketController.cs" />
+    <Compile Include="Areas\OurServices\Controllers\HomeController.cs" />
+    <Compile Include="Areas\OurServices\OurServicesAreaRegistration.cs" />
+    <Compile Include="Areas\Rimatours\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Rimatours\RimatoursAreaRegistration.cs" />
+    <Compile Include="Areas\Tourist\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Tourist\TouristAreaRegistration.cs" />
     <Compile Include="Controllers\AdController.cs" />
     <Compile Include="Controllers\AttractionCommentsRelController.cs" />
     <Compile Include="Controllers\AttractionController.cs" />
@@ -2235,8 +2253,11 @@
     <Compile Include="Utilities\Config.cs" />
     <Compile Include="Utilities\MainProvider.cs" />
     <Compile Include="Utilities\MethodRepo.cs" />
+    <Compile Include="Utilities\MyEshopRoleProvider.cs" />
+    <Compile Include="Utilities\reCaptchaResponse.cs" />
     <Compile Include="Utilities\SecurityProtocol.cs" />
     <Compile Include="Utilities\Translator.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -2290,6 +2311,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\OurServices\Data\" />
+    <Folder Include="Areas\OurServices\Views\Shared\" />
+    <Folder Include="Areas\Rimatours\Data\" />
+    <Folder Include="Areas\Rimatours\Views\Shared\" />
+    <Folder Include="Areas\Tourist\Data\" />
+    <Folder Include="Areas\Tourist\Views\Shared\" />
     <Folder Include="Resources\Imges\" />
     <Folder Include="Resources\UploadEditor\" />
     <Folder Include="Views\uploadPdfResidence\" />
@@ -2329,11 +2356,17 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
+  <!--To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
-  </Target>
-  -->
+  </Target>-->
 </Project>

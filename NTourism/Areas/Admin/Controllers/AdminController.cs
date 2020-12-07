@@ -16,6 +16,7 @@ namespace NTourism.Areas.Admin.Controllers
     public class AdminController : Controller
     {
         private ClientRepo clientRepo;
+
         public AdminController()
         {
             clientRepo = new ClientRepo();
@@ -27,10 +28,30 @@ namespace NTourism.Areas.Admin.Controllers
             return View(clients.Where(i => i.Status == 10));
         }
 
-       
+
         public ActionResult Login()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Login(LoginViewModel login)
+        {
+            if (ModelState.IsValid)
+            {
+                TblClient tblClient = clientRepo.SelectClientByUsernamePassword(login.UserName, login.Password);
+                if (tblClient.id != -1)
+                {
+                    FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
+                    return Redirect("/Admin/Admin/Index");
+                }
+                else
+                {
+                    //type error
+                    ModelState.AddModelError("UserName", "Error Username Or Password");
+                }
+                return View();
+            }
+            return View(login);
         }
 
 
@@ -84,6 +105,6 @@ namespace NTourism.Areas.Admin.Controllers
             return View(page);
         }
 
-       
+
     }
 }

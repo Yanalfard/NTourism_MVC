@@ -70,7 +70,26 @@
             @if (User.Identity.IsAuthenticated)
             {
                 <div id="DivBtnSingout" class=" text-center">
-                    <input id="BtnGoDashboard" class="BtnStyleBtnMenuHeaderLeftLgStyle" type="button" value="Dashboard" onclick="GoDashboard();" /><br />
+                    @if (User.IsInRole("admin"))
+                    {
+                        <a href="/Admin/Admin/Index" class="BtnStyleBtnMenuHeaderLeftLgStyle btn">Dashboard</a>
+                    }
+                    else if (User.IsInRole("rimatours"))
+                    {
+                        <a href="/Rimatours/Home/Index" class="BtnStyleBtnMenuHeaderLeftLgStyle btn">Dashboard</a>
+
+                    }
+                    else if (User.IsInRole("tourist"))
+                    {
+                        <a href="/Tourist/Home/Index" class="BtnStyleBtnMenuHeaderLeftLgStyle btn">Dashboard</a>
+
+                    }
+                    else if (User.IsInRole("ourservices"))
+                    {
+                        <a href="/OurServices/Home/Index" class="BtnStyleBtnMenuHeaderLeftLgStyle btn">Dashboard</a>
+
+                    }
+                    <br />
                     <input type="hidden" name="name" id="HiddenProfileName" value="" />
                     <a href="/Home/SignOut">
                         <input id="BtnSingout" class="BtnStyleBtnMenuHeaderLeftLgStyle" type="button" value="Singout" /><br />

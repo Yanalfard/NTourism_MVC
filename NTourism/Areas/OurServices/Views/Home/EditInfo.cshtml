@@ -1,0 +1,69 @@
+﻿<div class="groupcol1amnstyle">
+    <a id="CancelEditeProfileAmn" onclick="CancelEditeProfileOurServices();">Cancel</a>
+</div>
+<form id="EditeProfileOurServices" method="post">
+
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+        <label></label>
+        <div class="group">
+            <input id="ChosePhoto" type="file" onblur="CheckEmptyInput(this)" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="ChosePhoto">Chose Photo</label>
+        </div>
+        <div class="group">
+            <input id="Fname" type="text" maxlength="50" autocomplete="off" onblur="CheckEmptyInput(this)" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="Fname">First Name</label>
+        </div>
+
+        <div class="group">
+            <input id="Lname" type="text" maxlength="50" autocomplete="off" onblur="CheckEmptyInput(this)" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="Lname">Last Name</label>
+        </div>
+
+        <div class="group">
+            <input id="PhonNumber" type="tel" maxlength="15" oninput="maxLengthCheck(this)" autocomplete="off" onblur="CheckEmptyInput(this)" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="PhonNumber">Phone Number</label>
+        </div>
+
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <label></label>
+
+        <div class="group">
+            <input id="City" type="hidden" onblur="CheckEmptyInput(this)">
+            City:
+            <select id="cityNames" name="cityNames" class="form-control">
+            </select>
+
+        </div>
+        <div class="group">
+            <input id="Description" type="text" maxlength="50" autocomplete="off" onblur="CheckEmptyInput(this)" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="Description">Description</label>
+        </div>
+        <div class="group">
+            <input id="dolar" type="text" maxlength="50" autocomplete="off" onblur="CheckEmptyInput(this)" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="dolar">$</label>
+        </div>
+        <div class="group">
+            <input id="dolarWeekend" type="text" maxlength="50" autocomplete="off" onblur="CheckEmptyInput(this)" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="dolarWeekend">$dolarweekend</label>
+        </div>
+        <ul class="errorMessages"></ul>
+
+        <input id="btnsubmit" type="submit" value="CONTINUE" />
+    </div>
+</form>
