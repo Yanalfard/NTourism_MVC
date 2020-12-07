@@ -121,9 +121,6 @@
     <Content Include="Areas\Admin\Style\Ads.css" />
     <Content Include="Areas\Admin\Style\HomePage.css" />
     <Content Include="Areas\Admin\Style\_Layout.css" />
-    <Content Include="..\.editorconfig">
-      <Link>.editorconfig</Link>
-    </Content>
     <Content Include="Areas\Admin\Views\Admin\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
@@ -1747,8 +1744,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="OwlCarousel2-2.3.4\.travis.yml" />
-    <Content Include="OwlCarousel2-2.3.4\.vs\ProjectSettings.json" />
-    <Content Include="OwlCarousel2-2.3.4\.vs\slnx.sqlite" />
     <Content Include="OwlCarousel2-2.3.4\bower.json" />
     <Content Include="OwlCarousel2-2.3.4\CONTRIBUTING.md" />
     <Content Include="OwlCarousel2-2.3.4\dist\LICENSE" />
@@ -1861,6 +1856,9 @@
     <Content Include="Areas\Rimatours\Views\Home\EditInfo.cshtml" />
     <Content Include="Areas\Tourist\Views\Home\Info.cshtml" />
     <Content Include="Areas\Tourist\Views\Home\EditInfo.cshtml" />
+    <Content Include="OwlCarousel2-2.3.4\.vs\ProjectSettings.json" />
+    <Content Include="OwlCarousel2-2.3.4\.vs\slnx.sqlite" />
+    <Content Include=".editorconfig" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile2.pubxml" />
