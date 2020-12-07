@@ -24,7 +24,6 @@ namespace NTourism.Controllers
             tourGuideRepo = new TourGuideRepo();
         }
         // GET: Home
-        [Route("Index")]
         public ActionResult Index()
         {
             return View();
@@ -195,7 +194,7 @@ namespace NTourism.Controllers
                     // FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
                     FormsAuthentication.SetAuthCookie(login.UserName + "|" + "admin", login.Remember);
 
-                    return Redirect("/Index");
+                    return Redirect("/");
                 }
                 int dropdownId = 0;
                 if (ClicntName == "OurServices")
@@ -220,14 +219,14 @@ namespace NTourism.Controllers
                             ///clicnt
                             FormsAuthentication.SetAuthCookie(login.UserName + "|" + "tourist", login.Remember);
                             //FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
-                            return Redirect("/Index");
+                            return Redirect("/");
                         }
                         else if (dropdownId == 6)
                         {
                             ///ourservices
                             FormsAuthentication.SetAuthCookie(login.UserName + "|" + "ourservices", login.Remember);
                             //FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
-                            return Redirect("/Index");
+                            return Redirect("/");
                         }
                         //pass
                     }
@@ -244,7 +243,7 @@ namespace NTourism.Controllers
                         //ok
                         FormsAuthentication.SetAuthCookie(login.UserName + "|" + "rimatours", login.Remember);
                         // FormsAuthentication.SetAuthCookie(login.UserName, login.Remember, "1");
-                        return Redirect("/Index");
+                        return Redirect("/");
                     }
                     else
                     {
@@ -265,7 +264,7 @@ namespace NTourism.Controllers
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
-            return Redirect("/Index");
+            return Redirect("/");
         }
         public ActionResult test()
         {

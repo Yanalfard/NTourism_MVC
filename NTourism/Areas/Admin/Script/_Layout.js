@@ -2,7 +2,7 @@
 function SingOut() {
     window.localStorage.removeItem("AdminUserName");
     document.location.reload(true);
-    window.location.href = "/Index";
+    window.location.href = "/";
 };
 
 // jQuery Plugin: http://flaviusmatis.github.io/simplePagination.js/
